@@ -1,0 +1,53 @@
+/* Set background color to Discord's dark blue color */
+body {
+    background-color: #2f3136;
+}
+
+/* Style the login and registration forms to look like Discord's forms */
+form {
+    background-color: #36393f;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.field i {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.field label {
+    color: white;
+}
+
+.field em {
+    color: rgba(114, 137, 218, 0.7);
+}
+
+/* Style the form inputs to look like Discord's inputs */
+input {
+    background-color: #292b2f;
+    border: none;
+    padding: 12px;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Style the submit button to look like Discord's buttons */
+input[type="submit"] {
+    background-color: #7289da;
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Style the link to the registration page to look like Discord's links */
+a {
+    color: #7289da;
+}

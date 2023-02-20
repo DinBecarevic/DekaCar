@@ -1,0 +1,44 @@
+.login-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.header {
+    background-color: #2f3136;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header__logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.header__nav {
+    display: flex;
+}
+
+.header__nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-item {
+    margin-left: 20px;
+}
+
+.header__nav-item a {
+    color: #fff;
+    text-decoration: none;
+}

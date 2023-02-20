@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="header__container container">
+    <%= link_to "My Car Marketplace", root_path, class: "header__logo" %>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item"><%= link_to "Home", root_path %></li>
+        <% if user_signed_in? %>
+          <li class="header__nav-item"><%= link_to "My Profile", edit_user_registration_path %></li>
+          <li class="header__nav-item"><%= link_to 'Izpis', destroy_user_session_path, data: { turbo_method: :delete } %></li>
+        <% end %>
+        <% if !user_signed_in? %>
+          <li class="header__nav-item"><%= link_to "Log in", new_user_session_path %></li>
+          <li class="header__nav-item"><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
