@@ -1,0 +1,65 @@
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Condition</th>
+    <th>Price</th>
+    <th>Car Make</th>
+    <th>Car Model</th>
+    <th>Year</th>
+    <th>Mileage</th>
+    <th>VIN</th>
+    <th>Body Type</th>
+    <th>Fuel Type</th>
+    <th>KW</th>
+    <th>Horsepower</th>
+    <th>CCM</th>
+    <th>Transmission Type</th>
+    <th>Consumption</th>
+    <th>Color</th>
+    <th>Description</th>
+    <th>Country</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Website</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @oglasi.each do |ad| %>
+    <tr>
+      <td><%= ad.title %></td>
+      <td><%= ad.condition.name %></td>
+      <td><%= ad.price %></td>
+      <td><%= ad.car_make.name %></td>
+      <td><%= ad.car_model.name %></td>
+      <td><%= ad.year %></td>
+      <td><%= ad.mileage %></td>
+      <td><%= ad.vin %></td>
+      <td><%= ad.body_type.name %></td>
+      <td><%= ad.fuel_type.name %></td>
+      <td><%= ad.kw %></td>
+      <td><%= ad.horsepower %></td>
+      <td><%= ad.ccm %></td>
+      <td><%= ad.transmission_type.name %></td>
+      <td><%= ad.consumption %></td>
+      <td><%= ad.color %></td>
+      <td><%= ad.description %></td>
+      <td><%= ad.country.name %></td>
+      <td><%= ad.city.name %></td>
+      <td><%= ad.address %></td>
+      <td><%= ad.first_name %></td>
+      <td><%= ad.last_name %></td>
+      <td><%= ad.email %></td>
+      <td><%= ad.phone_number %></td>
+      <td><%= ad.website %></td>
+      <% ad.images.each do |image| %>
+        <%= image_tag image %>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

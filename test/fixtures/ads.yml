@@ -1,0 +1,55 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  condition: MyString
+  price: 9.99
+  make: MyString
+  model: MyString
+  year: 1
+  mileage: 1
+  vin: MyString
+  body_style: MyString
+  fuel_type: MyString
+  kw: 1
+  horsepower: 1
+  ccm: 1
+  transmission: MyString
+  consumption: MyString
+  color: MyString
+  description: MyText
+  country: one
+  city: one
+  address: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone_number: MyString
+  website: MyString
+
+two:
+  title: MyString
+  condition: MyString
+  price: 9.99
+  make: MyString
+  model: MyString
+  year: 1
+  mileage: 1
+  vin: MyString
+  body_style: MyString
+  fuel_type: MyString
+  kw: 1
+  horsepower: 1
+  ccm: 1
+  transmission: MyString
+  consumption: MyString
+  color: MyString
+  description: MyText
+  country: two
+  city: two
+  address: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone_number: MyString
+  website: MyString

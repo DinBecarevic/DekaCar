@@ -34,6 +34,7 @@ gem "jbuilder"
 # Add your own gems here
 gem 'devise'
 gem 'actionpack'
+gem 'jquery-rails'
 # ------------------------------------------------------------------
 
 # Use Redis adapter to run Action Cable in production

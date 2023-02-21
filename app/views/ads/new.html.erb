@@ -1,0 +1,91 @@
+<% if user_signed_in? %>
+
+  <%= form_with(model: @oglas) do |form| %>
+
+    <%= form.label :car_make_id %> <br>
+    <%= form.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id"} %>
+    <br><br>
+    <%= form.label :model %> <br>
+    <%= form.collection_select :car_model_id, CarModel.all, :id, :name, {prompt: "Model"}, {id: "car_model_id"} %>
+    <br><br>
+    <%= form.label :mileage %>
+    <%= form.text_field :mileage%>
+
+    <%= form.label :vin %>
+    <%= form.text_field :vin%>
+
+    <%= form.label :kw %>
+    <%= form.number_field :kw%>
+
+    <%= form.label :horsepower %>
+    <%= form.number_field :horsepower%>
+
+    <%= form.label :ccm %>
+    <%= form.number_field :ccm%>
+
+    <%= form.label :consumption %>
+    <%= form.number_field :consumption%>
+
+    <%= form.label :color %>
+    <%= form.text_field :color%>
+
+    <%= form.label :year %>
+    <%= form.number_field :year%>
+
+    <%= form.label :price %>
+    <%= form.number_field :price%>
+    <br><br>
+    <%= form.label :fuel_type %>
+    <%= form.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Gorivo"} %>
+    <br><br>
+    <%= form.label :condition %>
+    <%= form.collection_select :condition_id, Condition.all, :id, :name, {prompt: "Stanje"} %>
+    <br><br>
+    <%= form.label :body_type %>
+    <%= form.collection_select :body_type_id, BodyType.all, :id, :name, {prompt: "Karoserija"} %>
+    <br><br>
+    <%= form.label :transmission_type %>
+    <%= form.collection_select   :transmission_type_id, TransmissionType.all, :id, :name, {prompt: "Menjalnik"} %>
+    <br><br>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <br><br>
+    <%= form.label :description %>
+    <%= form.text_area :description, {prompt: "Opis"} %>
+    <br><br>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <br><br>
+    <%= form.label :country_id %>
+    <%= form.collection_select :country_id, Country.all, :id, :name, {prompt: "Select a country"} %>
+    <br><br>
+    <%= form.label :city_id %>
+    <%= form.collection_select :city_id, City.all, :id, :name, {prompt: "Select a city"} %>
+    <br><br>
+    <%= form.label :address %>
+    <%= form.text_field :address, {prompt: "Naslov"} %>
+
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, {prompt: "Telefon"} %>
+
+    <%= form.label :website %>
+    <%= form.text_field :website, {prompt: "Spletna stran"} %>
+
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+
+
+    <%= form.submit %>
+  <% end %>
+  <script>
+
+  </script>
+<% else %>
+  <p>Please sign in to create a new ad.</p>
+<% end %>

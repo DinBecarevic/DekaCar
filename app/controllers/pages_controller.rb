@@ -3,5 +3,9 @@ class PagesController < ApplicationController
   def home
     # Your code here
   end
+
+  def oglasi
+    @oglasi = Ad.all
+  end
 end
 
