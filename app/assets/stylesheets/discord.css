@@ -9,7 +9,10 @@ form {
     padding: 20px;
     border-radius: 5px;
     margin: 20px auto;
-    max-width: 400px;
+    max-width: 80vw;
+}
+.edit_ad {
+
 }
 
 .field i {
@@ -18,7 +21,7 @@ form {
 }
 
 .field label {
-    color: white;
+    color: black;
 }
 
 .field em {
@@ -38,7 +41,7 @@ input {
 
 /* Style the submit button to look like Discord's buttons */
 input[type="submit"] {
-    background-color: #7289da;
+    background-color: #7789da;
     border: none;
     color: #fff;
     padding: 12px 20px;

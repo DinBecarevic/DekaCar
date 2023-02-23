@@ -9,10 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag 'theme.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
-  <body>
+  <body class="bg-dark">
   <%= render 'layouts/header' %>
   <%= yield %>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.all.min.js"></script>
 </html>

@@ -11,7 +11,7 @@ class Ad < ApplicationRecord
   belongs_to :country
   belongs_to :city
 
-  has_many :ad_photo, dependent: :destroy
+  has_many :ad_photos, dependent: :destroy
 
   has_many_attached :images
 
@@ -28,5 +28,5 @@ class Ad < ApplicationRecord
   validates :email, presence: true
   validates :phone_number, presence: true
 
-  accepts_nested_attributes_for :ad_photo, allow_destroy: true
+  accepts_nested_attributes_for :ad_photos, allow_destroy: true
 end

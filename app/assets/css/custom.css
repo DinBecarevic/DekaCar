@@ -1,0 +1,32 @@
+.ul-skrol {
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.hidden-class {
+    display: none;
+}
+#sc-description-char-count {
+    display: none;
+}
+#map { height: 380px; }
+#trash-div {
+    margin: 10px 0 10px 0;
+    display: none;
+}
+#vizdelavi {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 80%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transform: rotate(340deg);
+    font-size: 4em;
+}
+#font-vizdelavi {
+    font-family: 'Courier New', monospace;
+}

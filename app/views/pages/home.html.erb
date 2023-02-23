@@ -1,4 +1,272 @@
-<h1>Welcome to the Home Page</h1>
-<p>This is the home page of your application.</p>
+<main class="page-wrapper">
+<!-- Page content-->
+<!-- Hero + Search form-->
+<section class="bg-position-top-center bg-repeat-0 pt-5" style="background-image: url(<%= asset_path('car-finder/home/hero-bg.png') %>); background-size: 1920px 630px;">
+  <div class="container pt-5">
+    <div class="row pt-lg-4 pt-xl-5">
+      <div class="col-lg-4 col-md-5 pt-3 pt-md-4 pt-lg-5">
+        <h1 class="display-4 text-light pb-2 mb-4 me-md-n5">Easy way to find the right car</h1>
+        <p class="fs-lg text-light opacity-70">DekaCar is a leading digital marketplace for the automotive industry that connects car shoppers with sellers. </p>
+      </div>
+      <div class="col-lg-8 col-md-7 pt-md-5"><img class="d-block mt-4 ms-auto" src="<%= asset_path('car-finder/home/hero-img.png') %>" width="800" alt="Car"></div>
+    </div>
+  </div>
+  <div class="container mt-4 mt-sm-3 mt-lg-n3 pb-5 mb-md-4">
+    <!-- Form group-->
+    <!-- Tabs-->
+    <form class="form-group form-group-light d-block" method="GET" action="car-finder-catalog-list.php">
+      <ul class="nav nav-tabs nav-tabs-light mb-4">
+        <li class="nav-item"><a id="stanje-Vse" class="nav-link active" href="#">Vse</a></li>
+        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Novo</a></li>
+        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Rabljeno</a></li>
+        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Testno</a></li>
+        <input id="stanje_id" type="hidden" name="stanje" value="Vse">
+      </ul>
+      <div class="row g-0 ms-lg-n2">
+        <hr class="hr-light d-lg-none my-2">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown">
+              <i class="fi-list me-2"></i><span class='dropdown-toggle-label'>Znamka</span></button><input type='hidden' name='make' id='home-znamka-input'><ul class="ul-skrol dropdown-menu dropdown-menu-dark" id="home-sc-make">
+
+            <li>
+              <a class='dropdown-item home-znamka-class' href=''><span class='dropdown-item-label home-znamka-class' >Audi</span></a>
+            </li>
 
 
+          </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-sm-none my-2">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="dropdown border-end-md border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">Model</span></button>
+            <input type="hidden" name="model">
+            <ul class="ul-skrol dropdown-menu dropdown-menu-dark"><li><a class='dropdown-item' href='#'><span class='dropdown-item-label'>Najprej izberite znamko</span></a></li></ul>
+          </div>
+        </div>
+        <hr class="hr-light d-md-none my-2">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">Karoserija</span></button>
+            <input type="hidden" name="type">
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li>
+                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>Limuzina</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-sm-none my-2">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">Gorivo</span></button>
+            <input type="hidden" name="gorivo">
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li>
+                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>bencin</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-sm-none my-2">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="dropdown" data-bs-toggle="select">
+            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">Location</span></button>
+            <input type="hidden" name="location">
+            <ul class="ul-skrol dropdown-menu dropdown-menu-dark">
+              <li>
+                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>Velenje</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="hr-light d-lg-none my-2">
+        <div class="col-lg-2">
+          <button class="btn btn-primary w-100" type="submit" name="isci-btn">Išči</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Body type selection-->
+<section class="container pb-5 mb-md-4">
+  <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2">
+    <h2 class="h3 text-light mb-2 mb-sm-0">Popular car body types</h2><a class="btn btn-link btn-light fw-normal px-0" href="car-finder-catalog-grid.html">View all<i class="fi-arrow-long-right fs-sm mt-0 ps-1 ms-2"></i></a>
+  </div>
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-md-4">
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/sedan.svg') %>" width="160" alt="Sedan"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Limuzina&isci-btn=">Limuzina</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="SUV"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Kombilimuzina&isci-btn=">Kombilimuzina</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/wagon.svg') %>" width="160" alt="Wagon"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Karavan&isci-btn=">Karavan</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/mpv.svg') %>" width="160" alt="Crossover"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Enoprostorec&isci-btn=">Enoprostorec</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/coupe.svg') %>" width="160" alt="Coupe"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Cupe&isci-btn=">Cupe</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="Pickup"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Cabrio&isci-btn=">Cabrio</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" width="160" src="<%= asset_path('car-finder/icons/suv.svg') %>" alt="Sport Coupe"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=SUV&isci-btn=">SUV</a></div>
+    </div>
+    <!-- Item-->
+    <div class="col">
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3"  width="160" src="<%= asset_path('car-finder/icons/pickup.svg') %>" alt="Compact"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Pick-up&isci-btn=">Pick-up</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Brands-->
+<section class="container py-2 py-sm-3">
+  <div class="row g-2 g-sm-4">
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/opel.svg') %>" width="86" alt="Opel"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/audi.svg') %>" width="86" alt="Audi"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mercedes.svg') %>" width="86" alt="Mercedes-Benz"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/toyota.svg') %>" width="86" alt="Toyota"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mazda.svg') %>" width="86" alt="Mazda"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/nissan.svg') %>" width="86" alt="Nissan"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/hyundai.svg') %>" width="86" alt="Hyundai"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/lexus.svg') %>" width="86" alt="Lexus"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/honda.svg') %>" width="86" alt="Honda"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/renault.svg') %>" width="86" alt="Renault"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/infiniti.svg') %>" width="86" alt="Infiniti"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mitsubishi.svg') %>" width="86" alt="Mitsubishi"></a></div>
+  </div>
+</section>
+<!-- Features-->
+<section class="container pt-4 pt-md-5">
+  <div class="d-sm-flex align-items-center justify-content-between">
+    <h2 class="h3 text-light mb-2 mb-sm-0">What sets DekaCar apart?</h2><a class="btn btn-link btn-light fw-normal px-0" href="#">How to sell cars on DekaCar<i class="fi-arrow-long-right fs-sm mt-0 ps-1 ms-2"></i></a>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-lg-4 offset-lg-1 pt-4 mt-2 pt-md-5 mt-md-3">
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-file lead text-primary mt-1 order-md-2"></i>
+        <div class="text-md-end ps-3 ps-md-0 pe-md-3 order-md-1">
+          <h3 class="h6 text-light mb-1">Over 1 Million Listings</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">That’s more than you’ll find on any other major online automotive marketplace in the USA.</p>
+        </div>
+      </div>
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-search lead text-primary mt-1 order-md-2"></i>
+        <div class="text-md-end ps-3 ps-md-0 pe-md-3 order-md-1">
+          <h3 class="h6 text-light mb-1">Personalized Search</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">Our powerful search makes it easy to personalize your results so you only see the cars and features you care about.</p>
+        </div>
+      </div>
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-settings lead text-primary mt-1 order-md-2"></i>
+        <div class="text-md-end ps-3 ps-md-0 pe-md-3 order-md-1">
+          <h3 class="h6 text-light mb-1">Non-Stop Innovation</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">Our team is constantly developing new features that make the process of buying and selling a car simpler.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 d-none d-md-block">
+      <div class="position-relative mx-auto h-100" style="max-width: 5rem; min-height: 26rem;">
+        <div class="rellax content-overlay pt-5" data-rellax-percentage="0.5"><img class="pt-3 mt-5" src="<%= asset_path('car-finder/home/car.svg') %>" alt="Car"></div>
+        <div class="position-absolute top-0 start-50 translate-middle-x h-100 overflow-hidden"><img src="<%= asset_path('car-finder/home/road-line.svg') %>" width="2" alt="Road line"></div>
+      </div>
+    </div>
+    <div class="col-md-5 col-lg-4 pt-md-5 mt-md-3">
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-info-circle lead text-primary mt-1"></i>
+        <div class="ps-3">
+          <h3 class="h6 text-light mb-1">Valuable Insights</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">We provide free access to key info like dealer reviews, market value, price drops.</p>
+        </div>
+      </div>
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-users lead text-primary mt-1"></i>
+        <div class="ps-3">
+          <h3 class="h6 text-light mb-1">Consumer-First Mentality</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">We focus on building the most transparent, trustworthy experience for our users, and we’ve proven that works for dealers, too.</p>
+        </div>
+      </div>
+      <div class="d-flex pb-4 pb-md-5 mb-2"><i class="fi-calculator lead text-primary mt-1"></i>
+        <div class="ps-3">
+          <h3 class="h6 text-light mb-1">Online Car Appraisal</h3>
+          <p class="fs-sm text-light opacity-70 mb-0">Specify the parameters of your car to form its market value on the basis of similar cars on DekaCar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Latest 5 cars (carousel)-->
+
+
+  <section class="container pt-sm-5 pt-4 pb-3">
+    <h2 class="h3 text-light pt-5 pb-3 mt-md-4">Zadnjih 5 objav</h2>
+    <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-carousel-light">
+      <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;900&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;gutter&quot;: 24}}}">
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="d-flex flex-wrap justify-content-center">
+    <!-- Your card div here -->
+    <% @oglasi_DESC.each_with_index do |ad, index| %>
+      <% if index < 5 %>
+        <div class="ms-4 mb-4">
+          <div class='card card-light card-hover h-100'>
+            <div class='card-img-top card-img-hover'><a class='img-overlay' href='<%= car_path(ad.id) %>'></a>
+              <div class='position-absolute start-0 top-0 pt-3 ps-3'><span class='d-table badge bg-primary'><%= ad.condition.name %></span></div>
+              <div class='content-overlay end-0 top-0 pt-3 pe-3'>
+                <button class='btn btn-icon btn-light btn-xs text-primary rounded-circle' type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist'><i class='fi-heart'></i></button>
+              </div>
+              <% if ad.images.attached? %>
+                <%= image_tag ad.images.first, style: 'width: 100%; height: 100%; object-fit: cover; max-height: 300px;',alt: "Image" %>
+              <% end %>
+            </div>
+            <div class='card-body'>
+              <div class='d-flex align-items-center justify-content-between pb-1'><span class='fs-sm text-light me-3'><%= ad.year %></span>
+
+              </div>
+              <h3 class='h6 mb-1'><a class='nav-link-light' href='<%= car_path(ad.id) %>'><%= ad.title %></a></h3>
+              <div class='text-primary fw-bold mb-1'><%= number_with_delimiter(ad.price.to_i, delimiter: ' ') %> €</div>
+              <div class='fs-sm text-light opacity-70'><i class='fi-map-pin me-1'></i><%= ad.city.name %></div>
+            </div>
+            <div class='card-footer border-0 pt-0'>
+              <div class='border-top border-light pt-3'>
+                <div class='row g-2'>
+                  <div class='col me-sm-1'>
+                    <div class='bg-dark rounded text-center w-100 h-100 p-2'><i class='fi-dashboard d-block h4 text-light mb-0 mx-center'></i><span class='fs-xs text-light'><%= number_with_delimiter(ad.mileage, delimiter: ' ') %> km</span></div>
+                  </div>
+                  <div class='col me-sm-1'>
+                    <div class='bg-dark rounded text-center w-100 h-100 p-2'><i class='fi-gearbox d-block h4 text-light mb-0 mx-center'></i><span class='fs-xs text-light'><%= ad.transmission_type.name %></span></div>
+                  </div>
+                  <div class='col'>
+                    <div class='bg-dark rounded text-center w-100 h-100 p-2'><i class='fi-petrol d-block h4 text-light mb-0 mx-center'></i><span class='fs-xs text-light'><%= ad.fuel_type.name %></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <!-- Vendor scrits: js libraries and plugins-->
+  <script src="<%= asset_path('bootstrap/dist/js/bootstrap.bundle.min.js') %>"></script>
+  <script src="<%= asset_path('simplebar/dist/simplebar.min.js') %>"></script>
+  <script src="<%= asset_path('smooth-scroll/dist/smooth-scroll.polyfills.min.js') %>"></script>
+  <script src="<%= asset_path('tiny-slider/dist/min/tiny-slider.js') %>"></script>
+  <script src="<%= asset_path('jarallax/dist/jarallax.min.js') %>"></script>
+  <script src="<%= asset_path('rellax/rellax.min.js') %>"></script>
+  <!-- Main theme script-->
+  <script src="<%= asset_path('theme.min.js') %>"></script>
+
+</main>

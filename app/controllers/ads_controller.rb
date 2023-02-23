@@ -9,6 +9,10 @@ class AdsController < ApplicationController
     @oglasi = Ad.all
   end
 
+  def mojiOglasi
+    @mojiOglasi = current_user.Ad
+  end
+
   def show
     @oglas = Ad.find(params[:id])
     @images = @oglas.ad_photos
@@ -24,7 +28,7 @@ class AdsController < ApplicationController
   # end
 
   def create
-    @oglas = Ad.new(post_params)
+    @oglas = Ad.new(ad_params)
     @oglas.user = current_user
 
     respond_to do |format|
@@ -45,7 +49,7 @@ class AdsController < ApplicationController
   def update
     @oglas = Ad.find(params[:id])
     if @oglas.update(ad_params)
-      redirect_to @oglas, notice: "Ad updated successfully"
+      redirect_to ads_mojiOglasi_path, notice: "Ad updated successfully"
     else
       render :edit, notice: "Ad not updated"
     end
@@ -54,13 +58,12 @@ class AdsController < ApplicationController
   def destroy
     @oglas = Ad.find(params[:id])
     @oglas.destroy
-    redirect_to ads_path, notice: "Ad deleted successfully"
+    redirect_to ads_mojiOglasi_path, notice: "Ad deleted successfully"
   end
-
 
   private
   # Only allow a list of trusted parameters through.
-  def post_params
+  def ad_params
     params.require(:ad).permit(:title, :description, :car_make_id, :car_model_id, :mileage, :vin, :kw, :horsepower, :ccm, :consumption, :color, :year, :price, :condition_id, :fuel_type_id, :body_type_id, :transmission_type_id, :first_name, :last_name, :email, :country_id, :city_id, :address, :phone_number, :website, images: [])
   end
 end

@@ -1,0 +1,243 @@
+<% if @oglas %>
+  <!-- Google Tag Manager (noscript)-->
+  <noscript>
+    <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+  </noscript>
+  <style>
+      .image-container {
+          height: 500px; /* adjust height as needed */
+          overflow: hidden;
+      }
+
+      .image-container img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          object-position: center;
+      }
+  </style>
+
+  <main class="page-wrapper">
+
+    <div class='container mt-5 mb-md-4 py-5'>
+      <!-- Breadcrumb-->
+      <nav class='mb-3 pt-md-3' aria-label='Breadcrumb'>
+        <ol class='breadcrumb breadcrumb-light'>
+          <li class='breadcrumb-item'><a href='<%= root_path %>'>Home</a></li>
+          <li class='breadcrumb-item'><a href='<%= oglasi_path %>'>Oglasi</a></li>
+          <li class='breadcrumb-item active' aria-current='page'><%= @oglas.title %></li>
+        </ol>
+      </nav>
+      <!-- Title + Sharing-->
+      <div class='d-sm-flex align-items-end align-items-md-center justify-content-between position-relative mb-4' style='z-index: 1025;'>
+        <div class='me-3'>
+          <h1 class='h2 text-light mb-md-0'> <%= @oglas.title %></h1>
+          <div class='d-md-none'>
+            <div class='d-flex align-items-center mb-3'>
+              <div class='h3 mb-0 text-light'><%= number_with_delimiter(@oglas.price.to_i, delimiter: ' ') %> €</div>
+              <div class='text-nowrap ps-3'>
+                <span class='badge fs-base me-2 bg-primary'><%= @oglas.condition.name %></span>
+                <span class='badge bg-success fs-base me-2' data-bs-toggle='popover' data-bs-placement='bottom' data-bs-trigger='hover' data-bs-html='true' data-bs-content='&lt;div class=&quot;d-flex&quot;&gt;&lt;i class=&quot;fi-award mt-1 me-2&quot;&gt;&lt;/i&gt;&lt;div&gt;This car is checked and&lt;br&gt;certified by Finder.&lt;/div&gt;&lt;/div&gt;'>Regisriran</span>
+              </div>
+            </div>
+            <div class='d-flex flex-wrap align-items-center text-light mb-2'>
+              <div class='text-nowrap border-end border-light pe-3 me-3'><i class='fi-dashboard fs-lg opacity-70 me-2'></i><span class='align-middle'><%= number_with_delimiter(@oglas.mileage, delimiter: ' ') %> km</span></div>
+              <div class='text-nowrap'><i class='fi-map-pin fs-lg opacity-70 me-2'></i><span class='align-middle'><%= @oglas.address %></span></div>
+            </div>
+          </div>
+        </div>
+        <div class='text-nowrap pt-3 pt-sm-0'>
+          <button class='btn btn-icon btn-translucent-light btn-xs rounded-circle mb-sm-2' type='button' data-bs-toggle='tooltip' title='Add to Wishlist'><i class='fi-heart'></i></button>
+          <div class='dropdown d-inline-block' data-bs-toggle='tooltip' title='Share'>
+            <button class='btn btn-icon btn-translucent-light btn-xs rounded-circle ms-2 mb-sm-2' type='button' data-bs-toggle='dropdown'><i class='fi-share'></i></button>
+            <div class='dropdown-menu dropdown-menu-dark dropdown-menu-end my-1'>
+              <button class='dropdown-item' type='button'><i class='fi-facebook fs-base opacity-75 me-2'></i>Facebook</button>
+              <button class='dropdown-item' type='button'><i class='fi-twitter fs-base opacity-75 me-2'></i>Twitter</button>
+              <button class='dropdown-item' type='button'><i class='fi-instagram fs-base opacity-75 me-2'></i>Instagram</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+
+
+
+        <div class='col-md-7'>
+
+          <div class="tns-carousel-wrapper">
+
+            <div class="tns-outer" id="tns1-ow">
+              <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
+                <button type="button" data-controls="prev" tabindex="-1" aria-controls="tns1">
+                  <i class="fi-chevron-left"></i>
+                </button>
+                <button type="button" data-controls="next" tabindex="-1" aria-controls="tns1">
+                  <i class="fi-chevron-right"></i>
+                </button>
+              </div>
+              <div id="tns1-mw" class="tns-ovh">
+                <div class="tns-inner" id="tns1-iw" style="overflow: hidden">
+                  <div class="tns-carousel-inner  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" data-carousel-options="{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}" id="tns1" style="transition-duration: 0s; transform: translate3d(-8.33333%, 0px, 0px);">
+
+                      <% @oglas.images.each do |image| %>
+                        <div class="tns-item tns-slide-cloned image-container" aria-hidden="true" tabindex="-1" >
+                          <%= image_tag image,  alt: "Image", class: "rounded-3" %>
+                        </div>
+                      <% end %>
+                    </div></div></div></div></div>
+          </div>
+
+        <!-- Sidebar-->
+        <div class='col-md-5 pt-5 pt-md-0' style='margin-top: -6rem;'>
+          <div class='sticky-top pt-5'>
+            <div class='d-none d-md-block pt-5'>
+              <div class='d-flex mb-4'><span class='badge bg-primary fs-base me-2'><%= @oglas.condition.name %></span><span class='badge bg-success fs-base me-2' data-bs-toggle='popover' data-bs-placement='top' data-bs-trigger='hover' data-bs-html='true' data-bs-content='&lt;div class=&quot;d-flex&quot;&gt;&lt;i class=&quot;fi-award mt-1 me-2&quot;&gt;&lt;/i&gt;&lt;div&gt;This car is checked and&lt;br&gt;certified by Finder.&lt;/div&gt;&lt;/div&gt;'>Certified</span></div>
+              <div class='h3 text-light'><%= number_with_delimiter(@oglas.price.to_i, delimiter: ' ') %> €</div>
+              <div class='d-flex align-items-center text-light pb-4 mb-2'>
+                <div class='text-nowrap border-end border-light pe-3 me-3'><i class='fi-dashboard fs-lg opacity-70 me-2'></i><span class='align-middle'><%= number_with_delimiter(@oglas.mileage, delimiter: ' ') %> km</span></div>
+                <div class='text-nowrap'><i class='fi-map-pin fs-lg opacity-70 me-2'></i><span class='align-middle'><%= @oglas.address %>, <%= @oglas.city.name %></span></div>
+              </div>
+            </div>
+            <div class='card card-light card-body mb-4'>
+
+              <div class='ps-2'>
+                <h5 class='text-light mb-0'><%= @oglas.first_name %>  <%= @oglas.last_name %></h5><span class='star-rating'><i class='star-rating-icon fi-star-filled active'></i><i class='star-rating-icon fi-star-filled active'></i><i class='star-rating-icon fi-star-filled active'></i><i class='star-rating-icon fi-star-filled active'></i><i class='star-rating-icon fi-star-filled active'></i></span><span class='fs-sm text-light opacity-70 align-middle ms-1'>(5 reviews)</span>
+              </div></a>
+              <p class='text-light' href='#'>Število oglasov uporabnika: <%= @user_ads_count %></p>
+              <div class='pt-4 mt-2'>
+                <button class='btn btn-outline-light btn-lg px-4 mb-3' type='button'><i class='fi-phone me-2'></i><%= @oglas.phone_number %></button><br><a class='btn btn-primary btn-lg' href='#send-mail' data-bs-toggle='collapse'><i class='fi-chat-left me-2'></i>Pošlji sporočilo</a>
+                <div class='collapse' id='send-mail'>
+
+                  <form class='needs-validation pt-4' novalidate method='post' action=''>
+                    <div class='mb-3'>
+                      <textarea class='form-control form-control-light' rows='5' id='font-vizdelavi' placeholder='// funkcija je v izdelavi' required disabled></textarea>
+                      <div class='invalid-feedback'>// funkcija je v izdelavi</div>
+                    </div>
+                    <button class='btn btn-outline-primary' type='submit' disabled><%= @oglas.email%></button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+            <div class='tns-carousel-inner' data-carousel-options='{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}'>
+
+
+            </div>
+          </div>
+          <ul class='tns-thumbnails' id='thumbnails'>
+            <% @oglas.images.each do |image| %>
+              <li class='tns-thumbnail'>
+                <%= image_tag image,  alt: "Thumbnail" %>
+              </li>
+            <% end %>
+          </ul>
+          <!-- Specs-->
+          <div class='py-3 mb-3'>
+            <h2 class='h4 text-light mb-4'>Specifikacije</h2>
+            <div class='row text-light'>
+              <div class='col-sm-6 col-md-12 col-lg-6'>
+                <ul class='list-unstyled'>
+                  <li class='mb-2'><strong>Leto izdelave:</strong><span class='opacity-70 ms-1'><%= @oglas.year %></span></li>
+                  <li class='mb-2'><strong>Kilometri:</strong><span class='opacity-70 ms-1'><%= number_with_delimiter(@oglas.mileage, delimiter: ' ') %> km</span></li>
+                  <li class='mb-2'><strong>Karoserija:</strong><span class='opacity-70 ms-1'><%= @oglas.body_type.name %></span></li>
+                  <li class='mb-2'><strong>Motor:</strong><span class='opacity-70 ms-1'></span></li>
+                  <p class='m-0'>&nbsp;&nbsp; - kW: <%= @oglas.kw %></p>
+                  <p class='m-0'>&nbsp;&nbsp; - KM: <%= @oglas.horsepower %></p>
+                  <p class='m-0'>&nbsp;&nbsp; - ccm: <%= @oglas.ccm %></p>
+                </ul>
+              </div>
+              <div class='col-sm-6 col-md-12 col-lg-6'>
+                <ul class='list-unstyled'>
+                  <li class='mb-2'><strong>Gorivo:</strong><span class='opacity-70 ms-1'><%= @oglas.fuel_type.name %></span></li>
+                  <li class='mb-2'><strong>Poraba:</strong><span class='opacity-70 ms-1'><%= @oglas.consumption %></span><i class='fi-alert-circle fs-sm text-primary ms-2' data-bs-toggle='tooltip' title='l na 100km'></i></li>
+                  <li class='mb-2'><strong>Menjalnik:</strong><span class='opacity-70 ms-1'><%= @oglas.transmission_type.name %></span></li>
+                  <li class='mb-2'><strong>Barva:</strong><span class='opacity-70 ms-1'><%= @oglas.color %></span></li>
+                  <li class='mb-2'><strong>VIN:</strong><span class='opacity-70 ms-1'><%= @oglas.vin %></span></li>
+                  <li class='mb-2'><strong>Naslov ogleda:</strong><span class='opacity-70 ms-1'><%= @oglas.address %>, <%= @oglas.city.name %></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Card with icon boxes-->
+
+          <div class='card card-body p-4 card-light mb-4'>
+            <div class='row row-cols-2 row-cols-sm-4 gx-3 gx-xl-4 gy-4'>
+
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/map-pin.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'>Slovensko poreklo</div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/tools.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'><%= @oglas.fuel_type.name %></div>
+              </div>
+
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/driving-test.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'>Servisna knjiga</div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/handshake.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'><%= @oglas.condition.name %></div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/steering-wheel.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'>Servo volan</div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/car.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'><%= @oglas.body_type.name %></div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/buyers.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'>Prvi lastnik</div>
+              </div>
+              <div class='col text-light text-center'>
+                <div class='d-table bg-dark rounded-3 mx-auto p-3'><img src='<%= asset_path('car-finder/icons/check.svg') %>' width='48' alt='Icon'></div>
+                <div class='fs-sm pt-2 mt-1'><%= @oglas.transmission_type.name %> menjalnik</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description-->
+          <div class="pb-4 mb-3">
+            <h2 class="h4 text-light pt-4 mt-3">Opis</h2>
+            <p class="text-light opacity-70 mb-1">
+              <%= @oglas.description %>
+            </p>
+          </div>
+          <!-- Post meta-->
+          <div class="d-flex flex-wrap border-top border-light fs-sm text-light pt-4 pb-5 pb-md-2">
+            <div class="border-end border-light pe-3 me-3"><span class="opacity-70">Objavljeno: <strong><%= @oglas.created_at.strftime("%B %d, %Y at %I:%M %p") %></strong></span></div>
+            <div class="border-end border-light pe-3 me-3"><span class="opacity-70">Številka oglasa: <strong><%= @oglas.id%></strong></span></div>
+            <div class="opacity-70">Ogledi <strong><span id="ogledi">/</span></strong></div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </main>
+
+
+  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+  <!-- Vendor scrits: js libraries and plugins-->
+  <script src="<%= asset_path('bootstrap/dist/js/bootstrap.bundle.min.js') %>"></script>
+  <script src="<%= asset_path('simplebar/dist/simplebar.min.js') %>"></script>
+  <script src="<%= asset_path('smooth-scroll/dist/smooth-scroll.polyfills.min.js') %>"></script>
+  <script src="<%= asset_path('tiny-slider/dist/min/tiny-slider.js') %>"></script>
+  <script src="<%= asset_path('jarallax/dist/jarallax.min.js') %>"></script>
+  <script src="<%= asset_path('rellax/rellax.min.js') %>"></script>
+  <!-- Main theme script-->
+  <script src="<%= asset_path('theme.min.js') %>"></script>
+
+  <!-- Dodatno -->
+  <script src="js/funkcije.js"></script>
+<% else %>
+  <p>The requested car could not be found.</p>
+<% end %>
