@@ -6,4 +6,5 @@
 //= link_tree ../vendor
 //= link_tree ../css
 //= link_tree ../js
+//= link_tree ../fonts
 //= link car-finder/home/hero-img.png
