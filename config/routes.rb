@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   get '/car/:id', to: 'pages#car', as: 'car'
   get 'ads/mojiOglasi', to: 'ads#mojiOglasi'
   resources :mojiOglasi, only: :mojiOglasi
+  get 'cars/search_results', to: 'cars#search_results', as: 'cars_search_results'
+
+  resources :ads do
+    collection do
+      get :fetch_make_models
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -1,0 +1,11 @@
+<% if @models.present? %>
+  <%= form_with(model: @oglas) do |form| %>
+    <%= turbo_stream.replace "make_model_list" do %>
+
+      <div id="make_model_list">
+        <%= form.collection_select :car_model_id, @models.all, :id, :name, {}, {id: "car_model_id", class: "form-select form-select-light", name: "ad[car_model_id]"} %>
+      </div>
+
+    <% end %>
+  <% end %>
+<% end %>

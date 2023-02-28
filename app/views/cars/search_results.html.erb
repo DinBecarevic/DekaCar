@@ -1,0 +1,12 @@
+<h1>Search Results</h1>
+<ul>
+  <% @cars.each do |ad| %>
+    <li>
+      <strong><%= ad.title %></strong>
+      <p><%= ad.description %></p>
+      <p><%= ad.price %></p>
+      <p><%= ad.location %></p>
+      <p><%= ad.year %></p>
+    </li>
+  <% end %>
+</ul>

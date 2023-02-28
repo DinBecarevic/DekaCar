@@ -14,79 +14,58 @@
   <div class="container mt-4 mt-sm-3 mt-lg-n3 pb-5 mb-md-4">
     <!-- Form group-->
     <!-- Tabs-->
-    <form class="form-group form-group-light d-block" method="GET" action="car-finder-catalog-list.php">
-      <ul class="nav nav-tabs nav-tabs-light mb-4">
-        <li class="nav-item"><a id="stanje-Vse" class="nav-link active" href="#">Vse</a></li>
-        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Novo</a></li>
-        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Rabljeno</a></li>
-        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Testno</a></li>
-        <input id="stanje_id" type="hidden" name="stanje" value="Vse">
-      </ul>
+    <%= form_for :car_search, url: oglasi_path, method: :get do |f| %>
+<!--      <ul class="nav nav-tabs nav-tabs-light mb-4">-->
+<!--        <li class="nav-item"><a id="stanje-Vse" class="nav-link active" href="#">Vse</a></li>-->
+<!--        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Novo</a></li>-->
+<!--        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Rabljeno</a></li>-->
+<!--        <li class="nav-item"><a id="stanje-Vse" class="nav-link" href="#">Testno</a></li>-->
+<!--        <input id="stanje_id" type="hidden" name="stanje" value="Vse"> -->
+<!--      </ul>-->
       <div class="row g-0 ms-lg-n2">
         <hr class="hr-light d-lg-none my-2">
         <div class="col-lg-2 col-md-3 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown">
-              <i class="fi-list me-2"></i><span class='dropdown-toggle-label'>Znamka</span></button><input type='hidden' name='make' id='home-znamka-input'><ul class="ul-skrol dropdown-menu dropdown-menu-dark" id="home-sc-make">
 
-            <li>
-              <a class='dropdown-item home-znamka-class' href=''><span class='dropdown-item-label home-znamka-class' >Audi</span></a>
-            </li>
+            <%= f.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id", class: "form-select form-select-light", data: {controller: "cardropdown"}} %>
 
-
-          </ul>
           </div>
         </div>
         <hr class="hr-light d-sm-none my-2">
         <div class="col-lg-2 col-md-3 col-sm-6">
           <div class="dropdown border-end-md border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">Model</span></button>
-            <input type="hidden" name="model">
-            <ul class="ul-skrol dropdown-menu dropdown-menu-dark"><li><a class='dropdown-item' href='#'><span class='dropdown-item-label'>Najprej izberite znamko</span></a></li></ul>
+            <label class="form-label text-light d-none" for="car_model_id">Model <span class="text-danger">*</span></label>
+            <div id="make_model_list">
+              <select class="form-select form-select-light" id="car_model_id">
+                <option value="" selected disabled>najprej izberi znamko</option>
+              </select>
+            </div>
           </div>
         </div>
         <hr class="hr-light d-md-none my-2">
         <div class="col-lg-2 col-md-3 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">Karoserija</span></button>
-            <input type="hidden" name="type">
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li>
-                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>Limuzina</span></a>
-              </li>
-            </ul>
+            <%= f.collection_select :body_type_id, BodyType.all, :id, :name, {prompt: "Karoserija"}, class: "form-select form-select-light mb-3"%>
           </div>
         </div>
         <hr class="hr-light d-sm-none my-2">
         <div class="col-lg-2 col-md-3 col-sm-6">
           <div class="dropdown border-end-sm border-light" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-car fs-lg me-2"></i><span class="dropdown-toggle-label">Gorivo</span></button>
-            <input type="hidden" name="gorivo">
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li>
-                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>bencin</span></a>
-              </li>
-            </ul>
+            <%= f.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Gorivo"}, class: "form-select form-select-light mb-3" %>
           </div>
         </div>
         <hr class="hr-light d-sm-none my-2">
         <div class="col-lg-2 col-md-3 col-sm-6">
           <div class="dropdown" data-bs-toggle="select">
-            <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">Location</span></button>
-            <input type="hidden" name="location">
-            <ul class="ul-skrol dropdown-menu dropdown-menu-dark">
-              <li>
-                <a class='dropdown-item' href='#'><span class='dropdown-item-label'>Velenje</span></a>
-              </li>
-            </ul>
+            <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Izberi kraj"}, class:"form-select form-select-light" %>
           </div>
         </div>
         <hr class="hr-light d-lg-none my-2">
         <div class="col-lg-2">
-          <button class="btn btn-primary w-100" type="submit" name="isci-btn">Išči</button>
+          <%= f.submit class:"btn btn-primary btn-lg d-block mb-2", prompt: "Išči"%>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </section>
 <!-- Body type selection-->
@@ -216,7 +195,7 @@
 
   <div class="d-flex flex-wrap justify-content-center">
     <!-- Your card div here -->
-    <% @oglasi_DESC.each_with_index do |ad, index| %>
+    <% @oglasi_desc.each_with_index do |ad, index| %>
       <% if index < 5 %>
         <div class="ms-4 mb-4">
           <div class='card card-light card-hover h-100'>

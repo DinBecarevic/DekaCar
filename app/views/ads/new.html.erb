@@ -2,197 +2,204 @@
 
   <%= form_with(model: @oglas) do |form| %>
 
-  <div class="col-lg-12">
-    <!-- Breadcrumb-->
-    <nav class="mb-3 pt-md-3" aria-label="Breadcrumb">
-      <ol class="breadcrumb breadcrumb-light">
-        <li class="breadcrumb-item"><a href="<% root_path %>">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page" id="sell_car_top">Prodaj Avto</li>
-      </ol>
-    </nav>
-    <!-- Title-->
-    <div class="mb-4">
-      <h1 class="h2 text-light mb-0">Prodaj Avto</h1>
-      <div class="d-lg-none text-light pt-3 mb-2">80% content filled</div>
-      <div class="progress progress-light d-lg-none mb-4" style="height: .25rem;">
-        <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="col-lg-12">
+      <!-- Breadcrumb-->
+      <nav class="mb-3 pt-md-3" aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-light">
+          <li class="breadcrumb-item"><a href="<% root_path %>">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="sell_car_top">Prodaj Avto</li>
+        </ol>
+      </nav>
+      <!-- Title-->
+      <div class="mb-4">
+        <h1 class="h2 text-light mb-0">Prodaj Avto</h1>
+        <div class="d-lg-none text-light pt-3 mb-2">80% content filled</div>
+        <div class="progress progress-light d-lg-none mb-4" style="height: .25rem;">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </div>
-    </div>
-    <!-- Basic info-->
-    <form method="post" action="includes/insert_car.inc.php" enctype="multipart/form-data">
-      <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="basic-info">
-        <h2 class="h4 text-light mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Osnovni podatki</h2>
-        <div class="mb-3">
-          <label class="form-label text-light" for="sc-title">Naslov <span class="text-danger">*</span></label>
-          <%= form.text_field :title, class: "form-control form-control-light", Placeholder: "Naslov vašega oglasa" %>
-          <span class="form-text text-light opacity-50">48 characters left</span>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-condition">Stanje vozila <span class="text-danger">*</span></label>
-            <%= form.collection_select :condition_id, Condition.all, :id, :name, {prompt: "Stanje"}, class: "form-select form-select-light"%>
+      <!-- Basic info-->
+      <form>
+        <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="basic-info">
+          <h2 class="h4 text-light mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Osnovni podatki</h2>
+          <div class="mb-3">
+            <label class="form-label text-light" for="sc-title">Naslov <span class="text-danger">*</span></label>
+            <%= form.text_field :title, class: "form-control form-control-light", Placeholder: "Naslov vašega oglasa" %>
+            <span class="form-text text-light opacity-50">48 characters left</span>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-condition">Stanje vozila <span class="text-danger">*</span></label>
+              <%= form.collection_select :condition_id, Condition.all, :id, :name, {prompt: "Stanje"}, class: "form-select form-select-light"%>
+            </div>
+          </div>
 
-      </section>
-      <!-- Price-->
-      <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="price">
-        <h2 class="h4 text-light mb-4"><i class="fi-cash text-primary fs-5 mt-n1 me-2"></i>Cena</h2>
-        <label class="form-label text-light" for="sc-price">Cena <span class="text-danger">*</span></label>
-        <div class="d-sm-flex mb-2">
-          <%= form.number_field :price, class: "form-control form-control-light w-100 me-2 mb-2", placeholder: "0"%>
-        </div>
-        <div class="form-check form-switch form-switch-light">
-          <input class="form-check-input" type="checkbox" id="negotiated-price" name="is_akcijska_cena" value="1">
-          <label class="form-check-label" for="negotiated-price">Akcijska Cena!</label>
-        </div>
-      </section>
-      <!-- Vehicle information-->
-      <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="vehicle-info">
-        <h2 class="h4 text-light mb-4"><i class="fi-car text-primary fs-5 mt-n1 me-2"></i>Podatki o vozilu</h2>
-        <div class="row pb-2">
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-make">Znamka <span class="text-danger">*</span></label>
-            <%= form.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id", class: "form-select form-select-light"} %>
+        </section>
+        <!-- Price-->
+        <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="price">
+          <h2 class="h4 text-light mb-4"><i class="fi-cash text-primary fs-5 mt-n1 me-2"></i>Cena</h2>
+          <label class="form-label text-light" for="sc-price">Cena <span class="text-danger">*</span></label>
+          <div class="d-sm-flex mb-2">
+            <%= form.number_field :price, class: "form-control form-control-light w-100 me-2 mb-2", placeholder: "0"%>
           </div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-model">Model <span class="text-danger">*</span></label>
-            <%= form.collection_select :car_model_id, CarModel.all, :id, :name, {prompt: "Model"}, {id: "car_model_id", class: "form-select form-select-light"} %>
-          </div>
-          <div class="col-md-3 col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-year">Letnik <span class="text-danger"></span></label>
-            <%= form.number_field :year, class: "form-select form-select-light"%>
-          </div>
-          <div class="col-md-3 col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-mileage">Kilometri <span class="text-danger"></span></label>
-            <%= form.text_field :mileage, class: "form-control form-control-light", placeholder: 'Vnesi kilometre'%>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label text-light" for="sc-vin">VIN</label>
-            <%= form.text_field :vin, placeholder: "Vnesi VIN kodo", class: "form-control form-control-light"%>
-          </div>
-        </div>
-        <div class="border-top border-light mt-2 pt-4">
+        </section>
+        <!-- Vehicle information-->
+        <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="vehicle-info">
+          <h2 class="h4 text-light mb-4"><i class="fi-car text-primary fs-5 mt-n1 me-2"></i>Podatki o vozilu</h2>
           <div class="row pb-2">
 
+            <!-- Make -->
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-make">Znamka <span class="text-danger">*</span></label>
+              <%= form.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id", class: "form-select form-select-light", data: {controller: "cardropdown"}} %>
+            </div>
 
-            <div class="col-md-6">
-              <label class="form-label text-light" for="sc-body">Karoserija <span class="text-danger">*</span></label>
-              <%= form.collection_select :body_type_id, BodyType.all, :id, :name, {prompt: "Karoserija"}, class: "form-select form-select-light mb-3"%>
-
-              <label class="form-label text-light" for="sc-fuel">Gorivo <span class="text-danger">*</span></label>
-              <%= form.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Gorivo"}, class: "form-select form-select-light mb-3" %>
-
-              <div class="row pb-2">
-                <div class="col-sm-4 mb-3">
-                  <label class="form-label text-light" for="sc-kW">kW <span class="text-danger"></span></label>
-                  <%= form.number_field :kw, class: "form-control form-control-light mb-1", placeholder: "0"%>
-                </div>
-                <div class="col-sm-4 mb-3">
-                  <label class="form-label text-light" for="sc-KM">KM <span class="text-danger"></span></label>
-                  <%= form.number_field :horsepower, class: "form-control form-control-light mb-1", placeholder: "0"%>
-                </div>
-                <div class="col-sm-4 mb-3">
-                  <label class="form-label text-light" for="sc-ccm">ccm <span class="text-danger"></span></label>
-                  <%= form.number_field :ccm, class: "form-control form-control-light mb-1", placeholder: "0"%>
-
-                </div>
+            <!-- Model -->
+            <div class="col-sm-6 mb-3">
+              <!-- tu not mi stimulus doda select ko uporabnik zbere znamko (fetch_make_models.turbo_stream.erb)-->
+              <label class="form-label text-light" for="car_model_id">Model <span class="text-danger">*</span></label>
+              <div id="make_model_list">
+                <select class="form-select form-select-light" id="car_model_id">
+                  <option value="" selected disabled>najprej izberi znamko</option>
+                </select>
               </div>
             </div>
 
-            <div class="col-md-6">
 
-              <label class="form-label text-light" for="sc-transmission">Menjalnik <span class="text-danger">*</span></label>
-              <%= form.collection_select   :transmission_type_id, TransmissionType.all, :id, :name, {prompt: "Menjalnik"}, class: "form-select form-select-light mb-3"%>
-              <label class="form-label text-light" for="sc-poraba">Poraba <span class="text-danger"></span></label>
-              <%= form.number_field :consumption, class: "form-control form-control-light", placeholder: "Kombinirana vožnja"%>
-              <span class="form-text text-light opacity-50">poraba l na 100 km</span>
-              <br>
-              <br>
-              <label class="form-label text-light" for="sc-color">Barva </label>
-              <%= form.text_field :color, class: "form-control form-control-light mb-3", placeholder: "Napiši barvo..."%>
+            <div class="col-md-3 col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-year">Letnik <span class="text-danger">*</span></label>
+              <%= form.number_field :year, class: "form-select form-select-light"%>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-mileage">Kilometri <span class="text-danger"></span></label>
+              <%= form.text_field :mileage, class: "form-control form-control-light", placeholder: 'Vnesi kilometre'%>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label text-light" for="sc-vin">VIN</label>
+              <%= form.text_field :vin, placeholder: "Vnesi VIN kodo", class: "form-control form-control-light"%>
+            </div>
+          </div>
+          <div class="border-top border-light mt-2 pt-4">
+            <div class="row pb-2">
+
+
+              <div class="col-md-6">
+                <label class="form-label text-light" for="sc-body">Karoserija <span class="text-danger">*</span></label>
+                <%= form.collection_select :body_type_id, BodyType.all, :id, :name, {prompt: "Karoserija"}, class: "form-select form-select-light mb-3"%>
+
+                <label class="form-label text-light" for="sc-fuel">Gorivo <span class="text-danger">*</span></label>
+                <%= form.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Gorivo"}, class: "form-select form-select-light mb-3" %>
+
+                <div class="row pb-2">
+                  <div class="col-sm-4 mb-3">
+                    <label class="form-label text-light" for="sc-kW">kW <span class="text-danger"></span></label>
+                    <%= form.number_field :kw, class: "form-control form-control-light mb-1", placeholder: "0"%>
+                  </div>
+                  <div class="col-sm-4 mb-3">
+                    <label class="form-label text-light" for="sc-KM">KM <span class="text-danger"></span></label>
+                    <%= form.number_field :horsepower, class: "form-control form-control-light mb-1", placeholder: "0"%>
+                  </div>
+                  <div class="col-sm-4 mb-3">
+                    <label class="form-label text-light" for="sc-ccm">ccm <span class="text-danger"></span></label>
+                    <%= form.number_field :ccm, class: "form-control form-control-light mb-1", placeholder: "0"%>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+
+                <label class="form-label text-light" for="sc-transmission">Menjalnik <span class="text-danger">*</span></label>
+                <%= form.collection_select   :transmission_type_id, TransmissionType.all, :id, :name, {prompt: "Menjalnik"}, class: "form-select form-select-light mb-3"%>
+                <label class="form-label text-light" for="sc-poraba">Poraba <span class="text-danger"></span></label>
+                <%= form.number_field :consumption, class: "form-control form-control-light", placeholder: "Kombinirana vožnja"%>
+                <span class="form-text text-light opacity-50">poraba l na 100 km</span>
+                <br>
+                <br>
+                <label class="form-label text-light" for="sc-color">Barva </label>
+                <%= form.text_field :color, class: "form-control form-control-light mb-3", placeholder: "Napiši barvo..."%>
+              </div>
+
+            </div>
+          </div>
+          <div class="border-top border-light mt-2 pt-4">
+            <label class="form-label text-light" for="sc-description">Opis</label>
+            <%= form.text_area :description, prompt: "Opis", class: "form-control form-control-light", row: "5", maxlenght: "3000", placeholder: "Opišite svoje vozilo"%>
+            <span class="form-text text-light opacity-50" id="sc-description-char-left">3000</span>
+            <span class="form-text text-light opacity-50"> characters left</span>
+          </div>
+        </section>
+        <!-- Features-->
+
+
+        <!-- Photos / video-->
+        <section class="card card-light card-body shadow-sm p-4 mb-4" id="photos">
+          <h2 class="h4 text-light mb-4"><i class="fi-image text-primary fs-5 mt-n1 me-2"></i>Fotografije / videoposnetki</h2>
+          <div class="alert alert-warning bg-faded-warning border-warning mb-4" role="alert">
+            <div class="d-flex">
+              <i class="fi-alert-circle me-2 me-sm-3"></i>
+              <p class="fs-sm mb-1">Največja velikost fotografije je 10 MB. Formati: jpeg, jpg, png, jfif. Najprej vstavite glavno sliko.<br>The maximum video size is 10 MB. Formats: mp4, mov.<br>Največ 10 datotek.</p>
+            </div>
+          </div>
+          <div id="hidden-galerija2" class="col-sm-12">
+          </div>
+          <!-- <input type="file" name="galerija[]" multiple data-max-file-size="10MB"> -->
+          <%= form.file_field :images, multiple: true, accept:"image/png,image/jpeg,image/jfif,video/mp4,video/mov" %>
+        </section>
+        <!-- Location-->
+        <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="location">
+          <h2 class="h4 text-light mb-4"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Lokacija</h2>
+          <div class="row">
+            <div class="col-sm-12 mb-3">
+              <label class="form-label text-light" for="sc-country">Država<span class="text-danger"></span></label>
+
+              <%= form.collection_select :country_id, Country.all, :id, :name, {prompt: "Izberi državo"}, class: "form-select form-select-light" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 mb-3">
+              <label class="form-label text-light" for="sc-city">Kraj<span class="text-danger">*</span></label>
+              <%= form.collection_select :city_id, City.all, :id, :name, {prompt: "Izberi kraj"}, class:"form-select form-select-light" %>
             </div>
 
+
           </div>
-        </div>
-        <div class="border-top border-light mt-2 pt-4">
-          <label class="form-label text-light" for="sc-description">Opis </label>
-          <%= form.text_area :description, prompt: "Opis", class: "form-control form-control-light", row: "5", maxlenght: "3000", placeholder: "Opišite svoje vozilo"%>
-          <span class="form-text text-light opacity-50" id="sc-description-char-left">3000</span>
-          <span class="form-text text-light opacity-50"> characters left</span>
-        </div>
-      </section>
-      <!-- Features-->
-
-
-      <!-- Photos / video-->
-      <section class="card card-light card-body shadow-sm p-4 mb-4" id="photos">
-        <h2 class="h4 text-light mb-4"><i class="fi-image text-primary fs-5 mt-n1 me-2"></i>Fotografije / videoposnetki</h2>
-        <div class="alert alert-warning bg-faded-warning border-warning mb-4" role="alert">
-          <div class="d-flex">
-            <i class="fi-alert-circle me-2 me-sm-3"></i>
-            <p class="fs-sm mb-1">Največja velikost fotografije je 10 MB. Formati: jpeg, jpg, png, jfif. Najprej vstavite glavno sliko.<br>The maximum video size is 10 MB. Formats: mp4, mov.<br>Največ 10 datotek.</p>
+          <div class="mb-3">
+            <label class="form-label text-light" for="ap-address">Naslov <span class="text-danger"></span></label>
+            <%= form.text_field :address, prompt: "Naslov", class:"form-control form-control-light", placeholder:"Naslov..." %>
           </div>
-        </div>
-        <div id="hidden-galerija2" class="col-sm-12">
-        </div>
-        <!-- <input type="file" name="galerija[]" multiple data-max-file-size="10MB"> -->
-        <%= form.file_field :images, multiple: true, accept:"image/png,image/jpeg,image/jfif,video/mp4,video/mov" %>
-      </section>
-      <!-- Location-->
-      <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="location">
-        <h2 class="h4 text-light mb-4"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Lokacija</h2>
-        <div class="row">
-          <div class="col-sm-12 mb-3">
-            <label class="form-label text-light" for="sc-country">Država<span class="text-danger"></span></label>
-
-            <%= form.collection_select :country_id, Country.all, :id, :name, {prompt: "Izberi državo"}, class: "form-select form-select-light" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 mb-3">
-            <label class="form-label text-light" for="sc-city">Kraj<span class="text-danger">*</span></label>
-            <%= form.collection_select :city_id, City.all, :id, :name, {prompt: "Izberi kraj"}, class:"form-select form-select-light" %>
-          </div>
-
-
-        </div>
-        <div class="mb-3">
-          <label class="form-label text-light" for="ap-address">Naslov <span class="text-danger"></span></label>
-          <%= form.text_field :address, prompt: "Naslov", class:"form-control form-control-light", placeholder:"Naslov..." %>
-        </div>
         </section>
-      <!-- Contacts-->
-      <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="contacts">
-        <h2 class="h4 text-light mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>Kontakt</h2>
-        <div class="row">
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-fn">Ime <span class="text-danger">*</span></label>
-            <%= form.text_field :first_name, class: "form-control form-control-light", value: current_user.first_name, placeholder: "Vnesite svoje ime..." %>
+        <!-- Contacts-->
+        <section class="card card-light card-body border-0 shadow-sm p-4 mb-4" id="contacts">
+          <h2 class="h4 text-light mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>Kontakt</h2>
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-fn">Ime <span class="text-danger">*</span></label>
+              <%= form.text_field :first_name, class: "form-control form-control-light", value: current_user.first_name, placeholder: "Vnesite svoje ime..." %>
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-sn">Priimek <span class="text-danger">*</span></label>
+              <%= form.text_field :last_name, class: "form-control form-control-light", value: current_user.last_name, placeholder: "Vnesite svoj priimek..." %></div>
           </div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-sn">Priimek <span class="text-danger">*</span></label>
-            <%= form.text_field :last_name, class: "form-control form-control-light", value: current_user.last_name, placeholder: "Vnesite svoj priimek..." %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-email">Email<span class="text-danger">*</span></label>
-            <%= form.email_field :email, class: "form-control form-control-light", value: current_user.email, placeholder: "Vnesite svoj email..." %></div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label text-light" for="sc-phone">Telefonska številka <span class="text-danger">*</span></label>
-            <%= form.text_field :phone_number, prompt: "Telefon", class:"form-control form-control-light", placeholder:"000-000-000" %>
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-email">Email<span class="text-danger">*</span></label>
+              <%= form.email_field :email, class: "form-control form-control-light", value: current_user.email, placeholder: "Vnesite svoj email..." %></div>
+            <div class="col-sm-6 mb-3">
+              <label class="form-label text-light" for="sc-phone">Telefonska številka <span class="text-danger">*</span></label>
+              <%= form.text_field :phone_number, prompt: "Telefon", class:"form-control form-control-light", placeholder:"000-000-000" %>
+            </div>
           </div>
-        </div>
-        <label class="form-label text-light" for="sc-website">Spletna stran</label>
-        <%= form.text_field :website, prompt: "Spletna stran", placeholder:"Vnesite povezavo spletišča", class:"form-control form-control-light mb-3" %>
+          <label class="form-label text-light" for="sc-website">Spletna stran</label>
+          <%= form.text_field :website, prompt: "Spletna stran", placeholder:"Vnesite povezavo spletišča", class:"form-control form-control-light mb-3" %>
 
-        <a class="nav-link-light collapse-label collapsed d-inline-block fs-sm fw-bold pt-2 pb-3" href="#sell_car_top" data-bs-toggle="collapse" data-bs-label-collapsed="" data-bs-label-expanded="hello :)" role="button" aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-up me-2"></i></a>
-      </section>
-      <div class="d-sm-flex justify-content-between pt-2">
-        <%= form.submit class:"btn btn-primary btn-lg d-block mb-2", prompt: "Objavi"%>
-      </div>
-    </form>
-  </div>
+          <a class="nav-link-light collapse-label collapsed d-inline-block fs-sm fw-bold pt-2 pb-3" href="#sell_car_top" data-bs-toggle="collapse" data-bs-label-collapsed="" data-bs-label-expanded="hello :)" role="button" aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-up me-2"></i></a>
+        </section>
+        <div class="d-sm-flex justify-content-between pt-2">
+          <%= form.submit class:"btn btn-primary btn-lg d-block mb-2", prompt: "Objavi"%>
+        </div>
+      </form>
+    </div>
   <% end %>
 <% else %>
   <p>Please sign in to create a new ad.</p>
