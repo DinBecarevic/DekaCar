@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :ads do
     collection do
       get :fetch_make_models
+      get :fetch_make_models_new
     end
   end
 

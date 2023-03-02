@@ -1,22 +1,65 @@
-<header class="header">
-  <div class="header__container container">
-    <%= link_to "My Car Marketplace", root_path, class: "header__logo" %>
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-item"><%= link_to "Home", root_path %></li>
-        <li class="header__nav-item"><%= link_to 'Oglasi', oglasi_path %></li>
-        <% if user_signed_in? %>
-          <li class="header__nav-item"><%= link_to "New Ad", new_ad_path %></li>
-          <li class="header__nav-item"><%= link_to "Your Ads", ads_mojiOglasi_path %></li>
-          <li class="header__nav-item"><%= link_to "My Profile", edit_user_registration_path %></li>
-          <li class="header__nav-item"><%= link_to 'Izpis', destroy_user_session_path, data: { turbo_method: :delete } %></li>
-        <% end %>
-        <% if !user_signed_in? %>
-          <li class="header__nav-item"><%= link_to "Log in", new_user_session_path %></li>
-          <li class="header__nav-item"><%= link_to "Sign up", new_user_registration_path %></li>
-        <% end %>
+<!-- Navbar-->
+<header class='navbar navbar-expand-lg navbar-dark fixed-top' data-scroll-header>
+  <div class='container'><a class='navbar-brand me-3 me-xl-4' href='<%= root_path %>'><img class='d-block' src='<%= asset_path('logo/logo-light.svg') %>' width='116' alt='Finder'></a>
+    <button class='navbar-toggler ms-auto' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'><span class='navbar-toggler-icon'></span></button>
+    <% if user_signed_in? %>
+      <div class='dropdown d-none d-lg-block order-lg-3 my-n2 me-3'><a class='d-block py-2' href='<%= edit_user_registration_path %>'><img class='rounded-circle' src='<%= asset_path('avatars/26.png') %>' width='40' alt='pfp'></a>
+      <div class='dropdown-menu dropdown-menu-dark dropdown-menu-end'>
+        <div class='d-flex align-items-start border-bottom border-light px-3 py-1 mb-2' style='width: 16rem;'><img class='rounded-circle' src='<%= asset_path('avatars/26.png') %>' width='48' alt='pfp'>
+          <div class='ps-2'>
+            <h6 class='fs-base text-light mb-0'><%= current_user.first_name %> <%= current_user.last_name %></h6>
+            <span class='star-rating star-rating-sm'>
+                    <i class='star-rating-icon fi-star-filled active'></i>
+                    <i class='star-rating-icon fi-star-filled active'></i>
+                    <i class='star-rating-icon fi-star-filled active'></i>
+                    <i class='star-rating-icon fi-star-filled active'></i>
+                    <i class='star-rating-icon fi-star-filled active'></i>
+                  </span>
+            <div class='fs-xs py-2'><br><%= current_user.email %></div>
+          </div>
+        </div>
+
+        <a class='dropdown-item' href='<%= edit_user_registration_path %>'><i class='fi-user me-2'></i>Osebni Podatki</a>
+        <a class='dropdown-item' href='<%= edit_user_registration_path %>'><i class='fi-lock me-2'></i>Password &amp; Security</a>
+        <a class='dropdown-item' href='<%= ads_mojiOglasi_path %>'><i class='fi-car me-2'></i>My Cars</a>
+
+        <div class='dropdown-divider'></div><a class='dropdown-item' href='<%= root_path %>'>Help</a>
+        <%= link_to 'Izpis', destroy_user_session_path, data: { turbo_method: :delete }, class:'dropdown-item' %>
+      </div>
+    </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <a class='btn btn-primary btn-sm ms-2 order-lg-3' href='<%= new_ad_path %>'><i class='fi-plus me-2'></i>Sell car</a>
+    <% end %>
+    <div class='collapse navbar-collapse order-lg-2' id='navbarNav'>
+      <ul class='navbar-nav navbar-nav-scroll' style='max-height: 35rem;'>
+
+        <!-- Menu items-->
+        <li class='nav-item'><a class='nav-link' href='<%= root_path %>'>Home</a></li>
+        <li class='nav-item dropdown active'><a class='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Account</a>
+          <ul class='dropdown-menu dropdown-menu-dark'>
+
+            <% if user_signed_in? %>
+              <li><a class='dropdown-item' href='<%= edit_user_registration_path %>'>Personal Info</a></li>
+              <li><a class='dropdown-item' href='<%= edit_user_registration_path %>'>Password &amp; Security</a></li>
+              <li><a class='dropdown-item' href='<%= ads_mojiOglasi_path %>'>My Cars</a></li>
+            <% end %>
+
+            <% if !user_signed_in? %>
+              <li><a class='dropdown-item' href='<%= new_user_session_path %>'>Sign In</a></li>
+              <li><a class='dropdown-item' href='<%= new_user_registration_path %>'>Sign Up</a></li>
+            <% end %>
+          </ul>
+        </li>
+
+        <li class='nav-item'><a class='nav-link' href='<%= oglasi_path %>'>Oglasi</a></li>
       </ul>
-    </nav>
+    </div>
   </div>
 </header>
+<br>
+<br>
+<section class="m-5">
+</section>
 

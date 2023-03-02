@@ -10,11 +10,11 @@ class PagesController < ApplicationController
     @oglasi = Ad.all
     @oglasi_desc = Ad.order("created_at DESC")
     if params[:car_search].present?
-      car_search_params = params.require(:car_search).permit(:car_make_id, :body_type_id, :fuel_type_id, :city_id)
+      car_search_params = params.require(:car_search).permit(:car_make_id, :car_model_id, :body_type_id, :fuel_type_id, :city_id)
       if car_search_params[:car_make_id].present?
         @oglasi_desc = @oglasi_desc.where(car_make_id: car_search_params[:car_make_id])
       end
-      if params[:ad].present? && car_search_params[:car_model_id].present?
+      if car_search_params[:car_model_id].present?
         @oglasi_desc = @oglasi_desc.where(car_model_id: car_search_params[:car_model_id])
       end
       if car_search_params[:body_type_id].present?

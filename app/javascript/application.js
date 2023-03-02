@@ -5,3 +5,5 @@ import * as bootstrap from "bootstrap"
 //= require stimulus
 //= require turbolinks
 //= require_tree .
+//= require rails-ujs
+

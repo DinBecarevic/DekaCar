@@ -62,6 +62,9 @@ class AdsController < ApplicationController
     redirect_to ads_mojiOglasi_path, notice: "Ad deleted successfully"
   end
 
+  def fetch_make_models_new
+    @models = CarModel.where(car_make_id: params[:id])
+  end
   def fetch_make_models
     @models = CarModel.where(car_make_id: params[:id])
   end

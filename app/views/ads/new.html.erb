@@ -51,7 +51,7 @@
             <!-- Make -->
             <div class="col-sm-6 mb-3">
               <label class="form-label text-light" for="sc-make">Znamka <span class="text-danger">*</span></label>
-              <%= form.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id", class: "form-select form-select-light", data: {controller: "cardropdown"}} %>
+              <%= form.collection_select :car_make_id, CarMake.all, :id, :name, {prompt: "Znamka"}, {id: "car_make_id", class: "form-select form-select-light", data: {controller: "cardropdownnew"}} %>
             </div>
 
             <!-- Model -->

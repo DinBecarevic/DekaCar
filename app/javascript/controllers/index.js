@@ -7,3 +7,5 @@ import { application } from "./application"
 import CardropdownController from "./cardropdown_controller"
 application.register("cardropdown", CardropdownController)
 
+import CardropdownnewController from "./cardropdownnew_controller"
+application.register("cardropdownnew", CardropdownnewController)

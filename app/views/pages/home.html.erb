@@ -71,40 +71,41 @@
 <!-- Body type selection-->
 <section class="container pb-5 mb-md-4">
   <div class="d-sm-flex align-items-center justify-content-between mb-3 mb-sm-4 pb-sm-2">
-    <h2 class="h3 text-light mb-2 mb-sm-0">Popular car body types</h2><a class="btn btn-link btn-light fw-normal px-0" href="car-finder-catalog-grid.html">View all<i class="fi-arrow-long-right fs-sm mt-0 ps-1 ms-2"></i></a>
+    <h2 class="h3 text-light mb-2 mb-sm-0">Popular car body types</h2><a class="btn btn-link btn-light fw-normal px-0" href="<%= oglasi_path %>">View all<i class="fi-arrow-long-right fs-sm mt-0 ps-1 ms-2"></i></a>
   </div>
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-md-4">
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/sedan.svg') %>" width="160" alt="Sedan"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Limuzina&isci-btn=">Limuzina</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/sedan.svg') %>" width="160" alt="Sedan"><%= link_to "Limuzina", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Limuzina")&.id }), class:"nav-link-light stretched-link fw-bold" %>
+      </div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="SUV"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Kombilimuzina&isci-btn=">Kombilimuzina</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="SUV"><%= link_to "Kombilimuzina", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Kombilimuzina")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/wagon.svg') %>" width="160" alt="Wagon"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Karavan&isci-btn=">Karavan</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/wagon.svg') %>" width="160" alt="Wagon"><%= link_to "Karavan", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Karavan")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/mpv.svg') %>" width="160" alt="Crossover"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Enoprostorec&isci-btn=">Enoprostorec</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/mpv.svg') %>" width="160" alt="Crossover"><%= link_to "Enoprostorec", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Enoprostorec")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/coupe.svg') %>" width="160" alt="Coupe"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Cupe&isci-btn=">Cupe</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/coupe.svg') %>" width="160" alt="Coupe"><%= link_to "Cupe", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Cupe")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="Pickup"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Cabrio&isci-btn=">Cabrio</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" src="<%= asset_path('car-finder/icons/crossover.svg') %>" width="160" alt="Pickup"><%= link_to "Cabrio", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Cabrio")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" width="160" src="<%= asset_path('car-finder/icons/suv.svg') %>" alt="Sport Coupe"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=SUV&isci-btn=">SUV</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3" width="160" src="<%= asset_path('car-finder/icons/suv.svg') %>" alt="Sport Coupe"><%= link_to "SUV", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "SUV")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
     <!-- Item-->
     <div class="col">
-      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3"  width="160" src="<%= asset_path('car-finder/icons/pickup.svg') %>" alt="Compact"><a class="nav-link-light stretched-link fw-bold" href="car-finder-catalog-list.php?type=Pick-up&isci-btn=">Pick-up</a></div>
+      <div class="card card-body card-light card-hover bg-transparent border-0 px-0 pt-0 text-center"><img class="d-block mx-auto mb-3"  width="160" src="<%= asset_path('car-finder/icons/pickup.svg') %>" alt="Compact"><%= link_to "Pick-up", oglasi_path(car_search: { body_type_id: BodyType.find_by(name: "Pick-up")&.id }), class:"nav-link-light stretched-link fw-bold" %></div>
     </div>
   </div>
 </section>
@@ -112,18 +113,18 @@
 <!-- Brands-->
 <section class="container py-2 py-sm-3">
   <div class="row g-2 g-sm-4">
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/opel.svg') %>" width="86" alt="Opel"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/audi.svg') %>" width="86" alt="Audi"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mercedes.svg') %>" width="86" alt="Mercedes-Benz"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/toyota.svg') %>" width="86" alt="Toyota"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mazda.svg') %>" width="86" alt="Mazda"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/nissan.svg') %>" width="86" alt="Nissan"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/hyundai.svg') %>" width="86" alt="Hyundai"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/lexus.svg') %>" width="86" alt="Lexus"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/honda.svg') %>" width="86" alt="Honda"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/renault.svg') %>" width="86" alt="Renault"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/infiniti.svg') %>" width="86" alt="Infiniti"></a></div>
-    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="#"><img src="<%= asset_path('car-finder/brands/mitsubishi.svg') %>" width="86" alt="Mitsubishi"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Opel")&.id }) %>"><img src="<%= asset_path('car-finder/brands/opel.svg') %>" width="86" alt="Opel"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Audi")&.id }) %>"><img src="<%= asset_path('car-finder/brands/audi.svg') %>" width="86" alt="Audi"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Mercedes-Benz")&.id }) %>"><img src="<%= asset_path('car-finder/brands/mercedes.svg') %>" width="86" alt="Mercedes-Benz"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Toyota")&.id }) %>"><img src="<%= asset_path('car-finder/brands/toyota.svg') %>" width="86" alt="Toyota"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Mazda")&.id }) %>"><img src="<%= asset_path('car-finder/brands/mazda.svg') %>" width="86" alt="Mazda"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Nisan")&.id }) %>"><img src="<%= asset_path('car-finder/brands/nissan.svg') %>" width="86" alt="Nissan"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Hyundai")&.id }) %>"><img src="<%= asset_path('car-finder/brands/hyundai.svg') %>" width="86" alt="Hyundai"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Lexus")&.id }) %>"><img src="<%= asset_path('car-finder/brands/lexus.svg') %>" width="86" alt="Lexus"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Honda")&.id }) %>"><img src="<%= asset_path('car-finder/brands/honda.svg') %>" width="86" alt="Honda"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Renault")&.id }) %>"><img src="<%= asset_path('car-finder/brands/renault.svg') %>" width="86" alt="Renault"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Infiniti")&.id }) %>"><img src="<%= asset_path('car-finder/brands/infiniti.svg') %>" width="86" alt="Infiniti"></a></div>
+    <div class="col-3 col-sm-2 col-xl-1 mb-4 pb-2"><a class="opacity-40 opacity-transition d-table mx-auto" href="<%= oglasi_path(car_search: { car_make_id: CarMake.find_by(name: "Mitsubishi")&.id }) %>"><img src="<%= asset_path('car-finder/brands/mitsubishi.svg') %>" width="86" alt="Mitsubishi"></a></div>
   </div>
 </section>
 <!-- Features-->
