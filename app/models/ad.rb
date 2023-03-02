@@ -22,7 +22,7 @@ class Ad < ApplicationRecord
   validates :kw, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :horsepower, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :ccm, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :vin, uniqueness: true, allow_nil: true
+  validates :vin, allow_nil: true, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
